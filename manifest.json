@@ -1,0 +1,24 @@
+{
+  "name": "YouTube Glitcher",
+  "description": "Glitch your or your friend's Youtube experience",
+  "version": "1.0",
+  "manifest_version": 3,
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*.youtube.com/watch?v=*"],
+      "js": ["content.js"]
+    }
+  ],
+  "permissions": ["background", "activeTab", "tabs", "scripting", "storage", "declarativeContent", "webNavigation", "debugger"],
+  "host_permissions": [
+    "*://*.youtube.com/*",
+    "*://*/*"
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "options_page": "options.html"
+}
